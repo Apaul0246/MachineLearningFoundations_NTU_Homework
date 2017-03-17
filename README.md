@@ -1,2 +1,2 @@
 # MachineLearningFoundations_NTU_Homework
-MachineLearningFoundations_Homework_Python
+Python code for assignments of Machine Learning Foundations from National Taiwan University.
