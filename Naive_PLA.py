@@ -32,7 +32,7 @@ def PLA_naive(df):
 				w0 += np.dot(df.iloc[:,-1][i],df.iloc[i,:-1])
 				New_Y = np.sign(np.dot(w0,df.iloc[:,:-1].T))
 				update += 1
-				print '%d update' %(update),'update the %d data' %(i)
+				print 'update %d times' %(update)
 	return w0
 
 df = read_data("C:\Users\user\OneDrive\Code\hw1_15_train.dat")
