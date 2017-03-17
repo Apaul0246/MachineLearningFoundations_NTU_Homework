@@ -1,14 +1,14 @@
 '''
 Python code - Naive PLA
 Data: https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/hw1/hw1_15_train.dat
-
+Packages required: Numpy, Pandas
 '''
 
 import numpy as np
 import pandas as pd
 
 def read_data(path):
-	
+
     df = pd.read_csv(path,sep='\s+',header=None)
     x0 = np.ones((len(df.index),1))
     df.insert(0,'x0',x0)
