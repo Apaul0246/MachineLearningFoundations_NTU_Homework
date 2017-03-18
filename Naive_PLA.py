@@ -20,9 +20,9 @@ def PLA_naive(df):
 	update = 0
 	New_Y = np.zeros((len(df.index)))
 	
-	while (sum(New_Y != df.iloc[:,-1].tolist())>0):
+	while (sum(New_Y != df.iloc[:,-1])>0):
 		for i in range(len(df.index)):
-			if sum(New_Y != df.iloc[:,-1].tolist())==0:
+			if sum(New_Y != df.iloc[:,-1])==0:
 				print 'Best separating hyperplane found'
 				print w0
 				break 
