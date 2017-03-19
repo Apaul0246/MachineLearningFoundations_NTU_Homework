@@ -14,7 +14,7 @@ def read_data(path):
     df.insert(0,'x0',x0)
     return df
 
-def PLA_naive(df):
+def PLA_naive(df,eta):
 
 	w0 = np.zeros((len(df.columns)-1))
 	update = 0
@@ -30,7 +30,7 @@ def PLA_naive(df):
 			if New_Y[dataindex[i]] == df.iloc[:,-1][dataindex[i]]:
 				pass
 			else:
-				w0 += np.dot(df.iloc[:,-1][dataindex[i]],df.iloc[dataindex[i],:-1])
+				w0 += eta*np.dot(df.iloc[:,-1][dataindex[i]],df.iloc[dataindex[i],:-1])
 				New_Y = np.sign(np.dot(w0,df.iloc[:,:-1].T))
 				update += 1
 	return update,w0
@@ -39,7 +39,7 @@ def run_PLA(df,t):
 	update_set = []
 	w_set = []
 	for i in range(t):
-		update,w = PLA_naive(df)
+		update,w = PLA_naive(df,0.5)
 		update_set.append(update)
 		w_set.append(w)
 	sns.distplot(update_set)
@@ -48,4 +48,3 @@ def run_PLA(df,t):
 
 df = read_data("C:\Users\user\OneDrive\Code\hw1_15_train.dat")
 run_PLA(df,2000)
-
